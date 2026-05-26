@@ -1,0 +1,20 @@
+{
+	"mcpServers": {
+		"quickchart-local": {
+			"command": "python",
+			"args": [
+				"-m",
+				"mcpquickchart"
+			],
+			"disabled": false,
+			"alwaysAllow": []
+		},
+		"fastmcp": {
+			"type": "streamable-http",
+			"url": "https://gofastmcp.com/mcp",
+			"disabled": false,
+			"alwaysAllow": [],
+			"disabledTools": []
+		}
+	}
+}
