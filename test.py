@@ -1,14 +1,14 @@
+from typing import dataclass_transform
 import requests
 import json
 
 QUICKCHART_URL = "https://quickchart.io/chart"
 
 
-def chart(type: str, datasets: list[list[int]], labels: list[str] = []):
+def chart(type: str, datasets: list[dict], labels: list[str]):
     data = {"type": type, "data": {}}
-    if labels:
-        data["data"]["labels"] = labels
-    data["data"]["datasets"] = [{"data": dataset} for dataset in datasets]
+    data["data"]["labels"] = labels
+    data["data"]["datasets"] = datasets
     print(json.dumps(data))
     params = {"c": json.dumps(data)}
     response = requests.get(QUICKCHART_URL, params=params)
@@ -21,4 +21,11 @@ def chart(type: str, datasets: list[list[int]], labels: list[str] = []):
 
 
 if __name__ == "__main__":
-    chart(type="bar", labels=["Jan", "Feb", "Mar"], datasets=[[10, 20, 15]])
+    chart(
+        type="bar",
+        labels=["Jan", "Feb", "Mar"],
+        datasets=[
+            {"label": "Test", "data": [10, 20, 15]},
+            {"label": "Second", "data": [1, 2, 3]},
+        ],
+    )
