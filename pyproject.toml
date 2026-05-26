@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-quickchart"
+version = "0.1.0"
+description = "An MCP server for rendering chart images using QuickChart.io API"
+readme = { file = "README.md", content-type = "text/markdown" }
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Lars Kiesow", email = "lkiesow@uos.de" }]
+keywords = ["mcp", "chart", "visualization", "ai"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
+requires-python = ">=3.10"
+dependencies = [
+  "fastmcp",
+  "python-dotenv",
+  "requests",
+]
+
+[project.urls]
+Homepage = "https://github.com/virtuos/mcp-quickchart"
+Repository = "https://github.com/virtuos/mcp-quickchart"
+
+[project.scripts]
+mcp-quickchart = "mcpquickchart.__main__:main"
